@@ -60,4 +60,35 @@ You need to connect STM32 pins to the RF module according to the following
 
 ## CAD files
 
-(CAD)[CAD] - CAD files (Fusion 360 source and STLs) for the case
+[CAD](CAD) - CAD files (Fusion 360 source and STLs) for the case
+
+## Using the damn thing
+
+### Pairing
+- Connect to USB while pressing the bind button
+- Press Bind on the radio and wait for it to bind
+- Unplug and re-plug the dongle
+
+### RX mode
+FrSky receiver mode is set to D16 V2 FCC in [frsky_rx.c](Core/Src/frsky_rx.c):  
+`static uint8_t frsky_rx_format = FRSKY_RX_D16v2FCC;`.  
+I haven't found a way to autodetect the receiver mode during bind and configuring a USB HID device isn't a pleasant task (there's no built-in GUI available to set parameters). Prebuilt firmware also uses that mode. Any suggestions of a user friendly way to set the RX mode are welcome.
+
+### Calibration
+Do joystick calibration the same as with wired connection.
+
+### Controls
+First 8 channels (1 to 8) are assigned to axes, next 8 (channels 9 to 16) - to buttons. Buttons are considered 'pressed' when channel value exceeds 15
+00us.
+
+## Used 3rd party code/credits
+
+### DIY Multiprotocol Module - FrSky receiver code
+[Multiprotocol TX Module](https://github.com/pascallanger/DIY-Multiprotocol-TX-Module) project - borrowed the receiver code from there. Might have been a mistake - the code was distinctly Arduino based - all source files were marked with .ino extensions as to warn others, all variables global, scattered across files, the only official way to build was from Arduino IDE (says the man who didn't provide a dockerfile..) At least the code supports D16/D16v2 protocols.  
+License: GPLv3
+
+[STM32Cube](https://www.st.com/en/ecosystems/stm32cube.html) - USB HID code and HAL library.  
+License: who knows? but probably permissive.. unless you plan to use Chinese STM32 'GD32' clones :)
+
+## License
+Left as an exercise to the reader. My guess would be GPLv3 since, you know, DIY Multiprotocol is GPLv3 and that's where frsky_rx.c came from.
