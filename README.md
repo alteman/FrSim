@@ -1,9 +1,11 @@
-# FrSim - an STM32 wireless flight simulator dongle for FrSky radios
+# FrSim - an STM32 wireless flight simulator USB dongle for FrSky radios
 
 ## Introduction
 
-FrSim is a project to create a cheap and easy to build DIY receiver dongle that supports FrSky D8/D16 protocols.
+FrSim is a project to create a cheap and easy to build DIY wireless USB receiver dongle that supports FrSky D8/D16 protocols.
 BOM is $4, all parts are readily available, no SMD soldering needed.
+
+![Image of FrSim dongle in a 3D printed case](./images/hero.jpeg)
 
 ## Why make another sim dongle?
 
