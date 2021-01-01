@@ -1,0 +1,6 @@
+.mxproject
+.settings
+.DS_Store
+Debug
+Release
+*.launch
