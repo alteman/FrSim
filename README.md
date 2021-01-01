@@ -28,7 +28,7 @@ You can use dfu-util to flash firmware using boot0 jumper to enter DFU. I think 
 
 ## Schematics
 
-You need to connect 
+You need to connect STM32 pins to the RF module according to the following 
 
 ### STM32 pins
 
